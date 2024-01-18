@@ -1,15 +1,27 @@
-#Assignment 8.10 dictionary comprehension으로 squares dictionary 생성. range(10)를 키로 하고, 각 키의 제곱을 값으로 한다.
-# squares = {n: pow(n, 2) for n in range(10)}
-# squares = {n: n**2 for n in range(10)}
-squares = {n: n*n for n in range(10)}
-print(squares)
+def isprime(n) -> bool:
+    """
+    매개변수로 넘겨 받은 수가 소수인지 여부를 boolean으로 리턴
+    :param n: 판정할 매개변수
+    :return: 소수면 True, 소수가 아니면 False
+    """
+    if n < 2:
+        return False #return False해서 끝낸다/2이상일 때 약수발생하면 return False해서 끝낸다
+    else:
+        i = 2
+        while i*i <= n:
+            if n % i == 0:
+                return False
+            i += 1
+       return True
 
-# univ = 'inha university'
-# counts_alphabet = {letter: univ.count(letter) for letter in univ} #dictionary comprehension
-# print(counts_alphabet)
 
-# univ = 'inha university'
-# counts_alphabet = dict()
-# for letter in univ:
-#     counts_alphabet[letter] = univ.count(letter)
-# print(counts_alphabet)
+numbers = input("Input first second number : ")
+n1 = int(numbers[0])
+n2 = int(numbers[1])
+
+if n1 > n2:
+    n1, n2 = n2, n1
+
+for number in range(n1, n2+1):
+    if isprime(number):
+        print(number, end=' ')
