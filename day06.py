@@ -1,26 +1,16 @@
-import random
+def desc(f): #desc:decorator->다른 함수가 필요하다 따라서 def sth나오는 것/호출은 something()이렇게 한다
+    def wrapper(): #wrapper: closure/ 독립된 공간 desc 매개변수를 기억하고있다 호출한다고 나오는 것이 아님 f값을 기억한다
+        print("study")
+        f()
+    #print("a")
+    return wrapper
 
-class OopsException(Exception):
-    pass
-# numbers = list()
-# for i in range(5):
-#     numbers. append(random.randint(1, 100))
-numbers = [random.randint(1, 100) for i in range(10)] #range 5는 5번 반복, 즉 5개를 뺴라
-print(numbers)
-try :
-    pick = int(input(f"Input index (0 ~ {len(numbers)-1}) "))
-    print(numbers[pick])
-    print(5/2)
-    raise OopsException("Oops~~") #exception!
-except IndexError as err:
-    print(f"Out of range : Wrong index number\n{err}")
-except ValueError as err:
-    print(f"Input Only Number~\n{err}")
-except ZeroDivisionError as err :
-    print(f"The denomiator cannot be 0.\n{err}")
-except OopsException as err:
-    print(f"Oops Oops {err}")
-except Exception as err:
-    print(f"Error occurs : {err}") #보험으로 제일 마지막으로 들어가고 디테일한 예외처리들이 선행되서 나온다
-else:
-    print(f"Program terminate")
+@desc #이렇게 @붙이면 그냥 decoration 함수 나온다....
+def something():
+    print("do something")
+
+s = desc(something) #desc()이 안에 f 넣으면 s = desc(something)이렇게 선언?해줘야한다..
+s()
+
+
+#is prime number decorator 붙여보기
