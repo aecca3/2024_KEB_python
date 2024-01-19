@@ -12,13 +12,11 @@ def test(f):
         print('end')
         #return result
     return test_in
-
+@test
 def greeting():
     print("안녕하세요~")
 
-t = test(greeting)
-t()
-
+greeting()
 # #9.3
 # #어떤 함수가 호출되면 'start'를, 끝나면 'end'를 출력하는 test decorator를 정의해보자.
 # def test_decorator(func) :
