@@ -1,34 +1,24 @@
-def get_odds(n) -> int:
+def test(f):
     """
-    1부터 n까지의 홀수를 발생시키는 제너레이터
-    :param n: int
-    :return: int
+    데코레이터 함수, 함수 시작하면 start 출력, 함수 끝나면 end 출력
+    :param f: function
+    :return: closure function
     """
-    for i in range(1, n+1, 2):
-        yield i
-cnt = 0
-odds = get_odds(9)
-for odd in odds:
-    cnt = cnt + 1
-    if cnt == 3:
-        print(f'Third number is {odd} ')
-        break
+    #def test_in
+    def test_in(): #test in 은 closure다
+        print('start')
+        #result = f(*args, **kwargs)
+        f()
+        print('end')
+        #return result
+    return test_in
 
-# #9.2
-# #range(10)의 홀수를 반환하는 get_odds generator 함수를 정의해보자.
-# #for문으로 반환된 세 번째 홀수를 찾아서 출력한다.
-# def get_odds():
-#     for x in range(1, 10, 2):
-#         yield x
-#
-# count = 0
-# for x in get_odds():
-#     count += 1
-#     if count == 3:
-#         third_odd = x
-#         break
-# print(f'세 번째 홀수는 {third_odd} 입니다.')
-#
+def greeting():
+    print("안녕하세요~")
+
+t = test(greeting)
+t()
+
 # #9.3
 # #어떤 함수가 호출되면 'start'를, 끝나면 'end'를 출력하는 test decorator를 정의해보자.
 # def test_decorator(func) :
