@@ -1,7 +1,7 @@
 #module
 
-from mymath import *
-
+#from mymath import *
+import mymath as mm
 
 
 while True:
@@ -9,13 +9,13 @@ while True:
 
     if menu == '1':
         fahrenheit = float(input('Input Fahrenheit : '))
-        print(f'Fahrenheit : {fahrenheit}F, Celsius : {((fahrenheit_to_celcius(fahrenheit)-32.0)*5.0/9.0):.4f}C')
+        print(f'Fahrenheit : {fahrenheit}F, Celsius : {((mm.fahrenheit_to_celcius(fahrenheit)-32.0)*5.0/9.0):.4f}C')
     elif menu == '2':
         celsius = float(input('Input Celsius : '))
-        print(f'Celsius : {celsius}C, Fahrenheit : {((celsius*9.0/5.0)+32.0):.4f}F')
+        print(f'Celsius : {celsius}C, Fahrenheit : {((mm.celsius*9.0/5.0)+32.0):.4f}F')
     elif menu == '3':
         number = int(input("Input number : "))
-        if isprime(number):
+        if mm.isprime(number):
             print(f'{number} is prime number')
         else:
             print(f'{number} is NOT prime number!')
@@ -29,7 +29,7 @@ while True:
             n1, n2 = n2, n1
 
         for number in range(n1, n2 + 1):
-            if isprime(number):
+            if mm.isprime(number):
                 print(number, end=' ')
         print()
     elif menu == '5':

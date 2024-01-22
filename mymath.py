@@ -16,3 +16,6 @@ def isprime(n) -> bool:
 
 def fahrenheit_to_celcius(fahrenheit) -> float :
     return (fahrenheit - 32.0)*5.0/9.0
+
+def celcius_to_fahrenheit(celcius) -> float :
+    return (celcius * 9.0/5.0)+32.0
