@@ -24,6 +24,8 @@ class Pokemon:
     def __str__(self):
         return self. __name + "입니다"
 
+    def __add__(self, target):
+        return self.__name + " + " + target.__name
 class Gyarados(Pokemon, SwimmingMixin):
     pass
 
@@ -34,6 +36,7 @@ g1 = Gyarados("갸라도스")
 c1 = Charizard("리자몽")
 print(g1)
 print(c1)
+print(g1+c1)
 
 
 
